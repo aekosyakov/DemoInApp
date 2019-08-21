@@ -27,7 +27,11 @@ extension UIView {
         layer.removeAllAnimations()
 
         let shakeAnimation  = CAKeyframeAnimation(keyPath:"transform")
-        shakeAnimation.values  = [NSValue(caTransform3D: CATransform3DMakeRotation(0.03, 0.0, 0.0, 1.0)),NSValue(caTransform3D: CATransform3DMakeRotation(-0.03 , 0, 0, 1))]
+        shakeAnimation.values =
+            [
+                NSValue(caTransform3D: CATransform3DMakeRotation(0.03, 0, 0, 1)),
+                NSValue(caTransform3D: CATransform3DMakeRotation(-0.03, 0, 0, 1)),
+            ]
         shakeAnimation.autoreverses = true
         shakeAnimation.duration  = 0.2
         shakeAnimation.repeatCount = .infinity
@@ -40,7 +44,7 @@ extension UIView {
 extension UIFont {
 
     static
-        func regular(_ size: CGFloat) -> UIFont {
+    func regular(_ size: CGFloat) -> UIFont {
         return UIFont(name: "HelveticaNeue", size: size) ?? UIFont.systemFont(ofSize: size)
     }
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Reachability
 
 public
 protocol Module {
@@ -23,6 +24,9 @@ class DemoModule: Module {
         $0.completion = { [weak self] status in self?.transactionCompletion(status) }
     }
 
+    private
+    let reachability = Reachability()
+
     private lazy
     var demoViewController = DemoViewController(
         attributedTitle: titleAttributedString,
@@ -32,53 +36,40 @@ class DemoModule: Module {
         $0.action = { [weak self] action in self?.handleAction(action) }
     }
 
+    // MARK: Module
+
     var viewController: UIViewController {
         return demoViewController
     }
 
-}
-
-private
-extension DemoModule {
-
+    private
     func handleAction(_ action: DemoAction?) {
+        guard reachability?.connection != nil else {
+            viewController.showAlert(title: internetConnectionAlertTitle)
+            return
+        }
+        guard iapService.canMakeInAppPurchases, DemoAction.watchVideo != action else {
+            viewController.showAlert(title: cantMakePaymentsAlertTitle)
+            return
+        }
         switch action {
         case .watchVideo?:
-            watchVideo()
+            let videoController = RewardedVideoController().with {
+                $0.dismissAction = { [weak self] in self?.viewController.dismiss(animated: true) }
+            }
+            viewController.present(videoController, animated: true, completion: nil)
         case .buyPremium?:
-            buyPremium()
+            showLoader()
+            iapService.purchasePremium()
         case .restore?:
-            restorePurchases()
+            showLoader()
+            iapService.restoreCompletedTransactions()
         default:
             break
         }
     }
 
-    func watchVideo() {
-        let videoController = RewardedVideoController().with {
-            $0.dismissAction = { [weak self] in self?.viewController.dismiss(animated: true) }
-        }
-        viewController.present(videoController, animated: true, completion: nil)
-    }
-
-    func buyPremium() {
-        guard iapService.canMakeInAppPurchases else {
-            viewController.showAlert(title: cantMakePaymentsAlertTitle)
-            return
-        }
-        showLoader()
-        iapService.purchasePremium()
-    }
-
-    func restorePurchases() {
-        guard iapService.canMakeInAppPurchases else {
-            viewController.showAlert(title: cantMakePaymentsAlertTitle)
-            return
-        }
-        showLoader()
-        iapService.restoreCompletedTransactions()
-    }
-
+    private
     func transactionCompletion(_ status: PurchaseStatus) {
         dismissLoader()
         (viewController as? DemoViewController)?.updateUI()
@@ -130,5 +121,8 @@ let titleAttributedString: NSAttributedString = {
 
 private
 let cantMakePaymentsAlertTitle = "Sorry, this device is not able or allowed to make payments"
+
+private
+let internetConnectionAlertTitle = "Please check your Internet connection"
 
 

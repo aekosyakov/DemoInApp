@@ -91,17 +91,21 @@ PODS:
     - Appodeal/Core
   - Appodeal/YandexAdapter (2.4.10):
     - Appodeal/Core
+  - ReachabilitySwift (4.3.1)
 
 DEPENDENCIES:
   - Appodeal (= 2.4.10)
+  - ReachabilitySwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Appodeal
+    - ReachabilitySwift
 
 SPEC CHECKSUMS:
   Appodeal: 7c655d91a5e200a73140e9be90f57a6a9a893cc8
+  ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
 
-PODFILE CHECKSUM: 5039041bcf3e1be3f492ef3cfa2a18aaf00f3324
+PODFILE CHECKSUM: 446bdc35b715eaf39cecc101c6c255552fa76df8
 
 COCOAPODS: 1.5.3
