@@ -11,8 +11,6 @@ import Appodeal
 final
 class RewardedVideoController: UIViewController, AppodealRewardedVideoDelegate {
 
-    var dismissAction: (() -> Void)?
-
     override
     func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +29,7 @@ class RewardedVideoController: UIViewController, AppodealRewardedVideoDelegate {
     // MARK: AppodealRewardedVideoDelegate
 
     func rewardedVideoDidFinish(_ rewardAmount: UInt, name: String?) {
-        dismissAction?()
+        dismiss(animated: true)
     }
 
 }

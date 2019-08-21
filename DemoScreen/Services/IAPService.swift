@@ -80,9 +80,9 @@ extension IAPService: SKPaymentTransactionObserver {
             case .purchased, .restored:
                 if $0.payment.productIdentifier == premiumProductIdentifier, isPremiumPurchased() == false {
                     UserDefaults.standard.set(true, forKey: premiumProductIdentifier)
-                    completion?(.success)
                 }
                 SKPaymentQueue.default().finishTransaction($0)
+                completion?(.success)
             case .failed:
                 SKPaymentQueue.default().finishTransaction($0)
                 completion?(.failed(with: $0.error))

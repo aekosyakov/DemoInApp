@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Appodeal.setAutocache(true, types: [.banner, .rewardedVideo])
         Appodeal.initialize(withApiKey: appodealApiKey,
                             types: [.banner, .rewardedVideo],
-                            hasConsent: false)
+                            hasConsent: true)
     }
 
 

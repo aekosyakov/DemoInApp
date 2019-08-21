@@ -50,23 +50,18 @@ class DemoModule: Module {
         }
         switch action {
         case .watchVideo?:
-            let videoController = RewardedVideoController().with {
-                $0.dismissAction = { [weak self] in self?.viewController.dismiss(animated: true) }
-            }
-            viewController.present(videoController, animated: true, completion: nil)
+            viewController.present(RewardedVideoController(), animated: true, completion: nil)
         case .buyPremium?:
             guard iapService.canMakeInAppPurchases else {
                 viewController.showAlert(title: cantMakePaymentsAlertTitle)
                 return
             }
-            showLoader()
             iapService.purchasePremium()
         case .restore?:
             guard iapService.canMakeInAppPurchases else {
                 viewController.showAlert(title: cantMakePaymentsAlertTitle)
                 return
             }
-            showLoader()
             iapService.restoreCompletedTransactions()
         default:
             break
@@ -75,7 +70,6 @@ class DemoModule: Module {
 
     private
     func transactionCompletion(_ status: PurchaseStatus) {
-        dismissLoader()
         (viewController as? DemoViewController)?.updateUI()
         switch status {
         case .failed(let error):
@@ -87,18 +81,8 @@ class DemoModule: Module {
 
 }
 
+private
 extension DemoModule {
-
-    func showLoader() {
-        let loadingController = LoadingViewController()
-        loadingController.modalPresentationStyle = .overCurrentContext
-        loadingController.modalTransitionStyle = .crossDissolve
-        viewController.present(loadingController, animated: true, completion: nil)
-    }
-
-    func dismissLoader() {
-        viewController.dismissPresentedVC()
-    }
 
     func displayErrorIfNeeded(_ error: Error?) {
         guard let error = error else {

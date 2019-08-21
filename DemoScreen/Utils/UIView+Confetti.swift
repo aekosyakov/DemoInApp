@@ -40,42 +40,42 @@ extension UIView {
         let emitter = CAEmitterLayer()
         emitter.emitterPosition = CGPoint(x: frame.size.width / 2, y: -10)
         emitter.emitterShape = .line
-        emitter.emitterSize = CGSize(width: frame.size.width, height: 2.0)
+        emitter.emitterSize = CGSize(width: frame.size.width, height: 2)
         emitter.emitterCells = generateEmitterCells()
         layer.addSublayer(emitter)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-            self.layer.sublayers?
-                .compactMap { $0 as? CAEmitterLayer }
-                .forEach {
-                    $0.removeAllAnimations()
-                    $0.removeFromSuperlayer()
-                }
-        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) { self.removeEmitterLayer() }
+    }
+
+    func removeEmitterLayer() {
+        layer.sublayers?.compactMap { $0 as? CAEmitterLayer }
+            .forEach {
+                $0.removeAllAnimations()
+                $0.removeFromSuperlayer()
+            }
     }
 
     private
     func generateEmitterCells() -> [CAEmitterCell] {
         var colors: [UIColor] = [.red, .blue, .green, .yellow]
         var images: [EmitterImage] = [.box, .triangle, .circle, .swirl]
-        var velocities: [CGFloat] = [220, 170, 150, 200]
+        var velocities: [CGFloat] = [130, 170, 150, 180]
         var cells: [CAEmitterCell] = []
 
         repeat {
             let randomIndex = Int(arc4random_uniform(4))
             let cell = CAEmitterCell()
-            cell.birthRate = 4.0
-            cell.lifetime = 7.0
-            cell.lifetimeRange = 0
+            cell.birthRate = 1
+            cell.lifetime = 10
             cell.velocity = velocities[randomIndex]
-            cell.velocityRange = 0
-            cell.emissionLongitude = CGFloat(Double.pi)
+            cell.velocityRange = cell.velocity / 2
+            cell.emissionLongitude = .pi
             cell.emissionRange = 0.5
-            cell.spin = 3.5
-            cell.spinRange = 0
+            cell.alphaSpeed = -1.0/10
+            cell.spinRange = .pi * 6
             cell.color = colors[randomIndex].cgColor
             cell.contents = images[randomIndex].image?.cgImage
-            cell.scaleRange = 0.33
+            cell.scaleRange = 0.25
             cell.scale = 0.1
             cells.append(cell)
         } while cells.count < 35
