@@ -18,6 +18,8 @@
 		301486CC2309BFCB00988B2F /* RewardedVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301486CB2309BFCB00988B2F /* RewardedVideoController.swift */; };
 		301486CF2309DB9F00988B2F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301486CE2309DB9F00988B2F /* StoreKit.framework */; };
 		301486D22309F6BE00988B2F /* TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301486D12309F6BE00988B2F /* TextAttributes.swift */; };
+		301A03FD230E03DA000CC694 /* DemoLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A03FC230E03DA000CC694 /* DemoLabels.swift */; };
+		301A0400230E0586000CC694 /* DemoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A03FF230E0586000CC694 /* DemoButtons.swift */; };
 		302D808A230C89290036D302 /* UIView+Confetti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8089230C89290036D302 /* UIView+Confetti.swift */; };
 		304CF4F5230C6BCA0070493A /* IAPServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304CF4F4230C6BCA0070493A /* IAPServiceProtocol.swift */; };
 		DA0E98B77640CF6D94B2A6B1 /* Pods_DemoScreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C6C425511C3D998499FC2D /* Pods_DemoScreen.framework */; };
@@ -38,6 +40,8 @@
 		301486CB2309BFCB00988B2F /* RewardedVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedVideoController.swift; sourceTree = "<group>"; };
 		301486CE2309DB9F00988B2F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		301486D12309F6BE00988B2F /* TextAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributes.swift; sourceTree = "<group>"; };
+		301A03FC230E03DA000CC694 /* DemoLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoLabels.swift; sourceTree = "<group>"; };
+		301A03FF230E0586000CC694 /* DemoButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoButtons.swift; sourceTree = "<group>"; };
 		302D8089230C89290036D302 /* UIView+Confetti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Confetti.swift"; sourceTree = "<group>"; };
 		304CF4F4230C6BCA0070493A /* IAPServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPServiceProtocol.swift; sourceTree = "<group>"; };
 		7A79079C191B2C4F76937AA0 /* Pods-DemoScreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoScreen.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoScreen/Pods-DemoScreen.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +130,15 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		301A03FE230E0558000CC694 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				301A03FC230E03DA000CC694 /* DemoLabels.swift */,
+				301A03FF230E0586000CC694 /* DemoButtons.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		304CF4F0230C63880070493A /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +151,7 @@
 		304CF4F1230C63930070493A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				301A03FE230E0558000CC694 /* Views */,
 				30113EBD23084C2500446A8C /* DemoViewController.swift */,
 				301486CB2309BFCB00988B2F /* RewardedVideoController.swift */,
 			);
@@ -352,6 +366,8 @@
 				301486D22309F6BE00988B2F /* TextAttributes.swift in Sources */,
 				30113EBC23084C2500446A8C /* AppDelegate.swift in Sources */,
 				301486CC2309BFCB00988B2F /* RewardedVideoController.swift in Sources */,
+				301A0400230E0586000CC694 /* DemoButtons.swift in Sources */,
+				301A03FD230E03DA000CC694 /* DemoLabels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

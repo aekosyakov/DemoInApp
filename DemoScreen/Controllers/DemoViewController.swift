@@ -7,7 +7,6 @@
 
 import UIKit
 
-public
 enum DemoAction: Int {
     case watchVideo, buyPremium, restore
 }
@@ -21,42 +20,27 @@ class DemoViewController: UIViewController {
     var action: ((DemoAction?) -> Void)?
 
     private
-    let attributedTitle: NSAttributedString
-
-    private
-    let backgroundImage: UIImage?
-
-    private
     let iapService: IAPServiceProtocol
 
     // MARK: Subviews
 
     private lazy
-    var backgroundImageView = UIImageView(image: backgroundImage)
+    var backgroundImageView = UIImageView(image: "gradient_background".image)
 
     private
     let giftImageView = UIImageView(image: "icon_gift".image)
 
     private lazy
-    var titleLabel = UILabel().with {
-        $0.attributedText = attributedTitle
-        $0.numberOfLines = 2
-    }
+    var titleLabel = UILabel.wallpapersLabel()
 
     private
-    let watchVideoButton = UIButton().with {
-        let attributes = TextAttributes(alignment: .center, font: .regular(15), foregroundColor: .black, kern: 0.54)
-        $0.setAttributedTitle("Watch Video".uppercased().attributed(attributes), for: .normal)
-        $0.setBackgroundImage("yellow_button".image, for: .normal)
+    let watchVideoButton = UIButton.watchVideoButton().with {
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         $0.tag = DemoAction.watchVideo.rawValue
     }
 
     private
-    let buyPremiumButton = UIButton().with {
-        let attributes = TextAttributes(alignment: .center, font: .regular(15), kern: 0.54)
-        $0.setAttributedTitle("Premium Free".uppercased().attributed(attributes), for: .normal)
-        $0.setBackgroundImage("red_button".image, for: .normal)
+    let buyPremiumButton = UIButton.buyPremiumButton().with {
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         $0.tag = DemoAction.buyPremium.rawValue
     }
@@ -66,12 +50,7 @@ class DemoViewController: UIViewController {
     let closeButton = UIButton().with { $0.setImage("icon_close".image, for: .normal) }
 
     private
-    let restoreButton = UIButton().with {
-        let attributes = TextAttributes(alignment: .center, font: .regular(11))
-        let disabledAttributes = TextAttributes(alignment: .center, font: .regular(11), foregroundColor: UIColor.white.withAlphaComponent(0.5))
-        let restoreTitle = "Restore".uppercased()
-        $0.setAttributedTitle(restoreTitle.attributed(attributes), for: .normal)
-        $0.setAttributedTitle(restoreTitle.attributed(disabledAttributes), for: .disabled)
+    let restoreButton = UIButton.restoreButton().with {
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         $0.tag = DemoAction.restore.rawValue
     }
@@ -83,11 +62,7 @@ class DemoViewController: UIViewController {
     }
 
     private
-    let termsOfUseLabel = UILabel().with {
-        $0.attributedText = termsOfUseAttributedString
-        $0.alpha = 0.5
-        $0.numberOfLines = 0
-    }
+    let termsOfUseLabel = UILabel.termsOfUseLabel()
 
     private lazy
     var buttonsStackView = UIStackView(arrangedSubviews: [watchVideoButton, buyPremiumButton]).with {
@@ -107,9 +82,7 @@ class DemoViewController: UIViewController {
 
     // MARK: Initialize
 
-    init(attributedTitle: NSAttributedString, backgroundImage: UIImage?, iapService: IAPServiceProtocol) {
-        self.attributedTitle = attributedTitle
-        self.backgroundImage = backgroundImage
+    init(iapService: IAPServiceProtocol) {
         self.iapService = iapService
         super.init(nibName: nil, bundle: nil)
     }
@@ -207,20 +180,5 @@ class DemoViewController: UIViewController {
     }
 
 }
-
-private
-let termsOfUse =
-"""
-Automatic renewal can be disabled 24 hours before the end of the current period. A subscription fee is charged to iTunes along with a subscription confirmation. Automatic renewal can be disabled after purchase in your account settings. \n\n
-"""
-
-private
-let termsOfUseAttributedString: NSAttributedString = {
-    let termsOfUseAttributes = TextAttributes(alignment: .justified, font: .regular(10), kern: 0.36, lineHeight: 12).dictionary
-    let additionalAttributes = TextAttributes(alignment: .center, font: .regular(10), kern: 0.36, lineHeight: 12).dictionary
-    let mutableAttributedString = NSMutableAttributedString(string: termsOfUse, attributes: termsOfUseAttributes)
-    mutableAttributedString.append(NSAttributedString(string: "Terms of Use | Security policy", attributes: additionalAttributes))
-    return NSAttributedString(attributedString: mutableAttributedString)
-}()
 
 

@@ -24,17 +24,13 @@ class DemoModule: Module {
         $0.completion = { [weak self] status in self?.transactionCompletion(status) }
     }
 
-    private
-    let reachability = Reachability()
-
     private lazy
-    var demoViewController = DemoViewController(
-        attributedTitle: titleAttributedString,
-        backgroundImage: "gradient_background".image,
-        iapService: iapService
-    ).with {
+    var demoViewController = DemoViewController(iapService: iapService).with {
         $0.action = { [weak self] action in self?.handleAction(action) }
     }
+
+    private
+    let reachability = Reachability()
 
     // MARK: Module
 
@@ -96,16 +92,6 @@ extension DemoModule {
     }
 
 }
-
-private
-let titleAttributedString: NSAttributedString = {
-    let titleAttributes = TextAttributes(font: .regular(25), lineHeight: 30).dictionary
-    let subtitleAttribute = TextAttributes(font: .regular(20), lineHeight: 30).dictionary
-    let mutableAttributedString = NSMutableAttributedString(string: "Wallpapers \n".uppercased(), attributes: titleAttributes)
-    let subtitleMutableAttributedString = NSAttributedString(string: "for save premium content", attributes: subtitleAttribute)
-    mutableAttributedString.append(subtitleMutableAttributedString)
-    return NSAttributedString(attributedString: mutableAttributedString)
-}()
 
 private
 let cantMakePaymentsAlertTitle = "Sorry, this device is not able or allowed to make payments"

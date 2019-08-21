@@ -32,4 +32,12 @@ class RewardedVideoController: UIViewController, AppodealRewardedVideoDelegate {
         dismiss(animated: true)
     }
 
+    func rewardedVideoDidFailToLoadAd() {
+        dismiss(animated: true)
+    }
+
+    func rewardedVideoDidFailToPresentWithError(_ error: Error) {
+        dismiss(animated: true)
+    }
+
 }
