@@ -1,8 +1,9 @@
 
-# Language
-Swift 4.2, XCode 10.1
+## Language
+Swift 4.2
+XCode 10.1
 
-# Compability 
+## Compability 
 **iOS** (11.0 - 12.4)
 
 ## Installation
