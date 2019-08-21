@@ -48,10 +48,6 @@ class DemoModule: Module {
             viewController.showAlert(title: internetConnectionAlertTitle)
             return
         }
-        guard iapService.canMakeInAppPurchases, DemoAction.watchVideo != action else {
-            viewController.showAlert(title: cantMakePaymentsAlertTitle)
-            return
-        }
         switch action {
         case .watchVideo?:
             let videoController = RewardedVideoController().with {
@@ -59,9 +55,17 @@ class DemoModule: Module {
             }
             viewController.present(videoController, animated: true, completion: nil)
         case .buyPremium?:
+            guard iapService.canMakeInAppPurchases else {
+                viewController.showAlert(title: cantMakePaymentsAlertTitle)
+                return
+            }
             showLoader()
             iapService.purchasePremium()
         case .restore?:
+            guard iapService.canMakeInAppPurchases else {
+                viewController.showAlert(title: cantMakePaymentsAlertTitle)
+                return
+            }
             showLoader()
             iapService.restoreCompletedTransactions()
         default:

@@ -147,51 +147,52 @@ class DemoViewController: UIViewController {
 
     private
     func setupLayout() {
-        [
-            // Background Image
-            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        NSLayoutConstraint.activate(
+            [
+                // Background Image
+                backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
+                backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
-            // Restore Button
-            restoreButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            restoreButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            restoreButton.widthAnchor.constraint(equalToConstant: 49.0),
-            restoreButton.heightAnchor.constraint(equalToConstant: 13.0),
+                // Restore Button
+                restoreButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+                restoreButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                restoreButton.widthAnchor.constraint(equalToConstant: 49.0),
+                restoreButton.heightAnchor.constraint(equalToConstant: 13.0),
 
-            // Close Button
-            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15.0),
-            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15.0),
-            closeButton.widthAnchor.constraint(equalToConstant: 24.0),
-            closeButton.heightAnchor.constraint(equalToConstant: 24.0),
+                // Close Button
+                closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15.0),
+                closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15.0),
+                closeButton.widthAnchor.constraint(equalToConstant: 24.0),
+                closeButton.heightAnchor.constraint(equalToConstant: 24.0),
 
-            // Gift Image
-            giftImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 164),
-            giftImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            giftImageView.widthAnchor.constraint(equalToConstant: 192.0),
-            giftImageView.heightAnchor.constraint(equalToConstant: 180.0),
+                // Gift Image
+                giftImageView.topAnchor.constraint(lessThanOrEqualTo: view.topAnchor, constant: 164),
+                giftImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                giftImageView.widthAnchor.constraint(equalToConstant: 192.0),
+                giftImageView.heightAnchor.constraint(equalToConstant: 180.0),
 
-            // Title
-            titleLabel.topAnchor.constraint(equalTo: giftImageView.bottomAnchor, constant: 29),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.widthAnchor.constraint(equalToConstant: 240.0),
-            titleLabel.heightAnchor.constraint(equalToConstant: 60.0),
+                // Title
+                titleLabel.topAnchor.constraint(equalTo: giftImageView.bottomAnchor, constant: 29),
+                titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                titleLabel.widthAnchor.constraint(equalToConstant: 240.0),
+                titleLabel.heightAnchor.constraint(equalToConstant: 60.0),
+                titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: buttonsStackView.topAnchor, constant: -20),
 
-            // Buttons Stack
-            buttonsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            buttonsStackView.widthAnchor.constraint(equalToConstant: 248.0),
-            buttonsStackView.heightAnchor.constraint(equalToConstant: 120.0),
-            buttonsStackView.bottomAnchor.constraint(equalTo: labelsStackView.topAnchor, constant: -15),
+                // Buttons Stack
+                buttonsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                buttonsStackView.widthAnchor.constraint(equalToConstant: 248.0),
+                buttonsStackView.heightAnchor.constraint(equalToConstant: 120.0),
+                buttonsStackView.bottomAnchor.constraint(equalTo: labelsStackView.topAnchor, constant: -15),
 
-            // Labels Stack
-            labelsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            labelsStackView.widthAnchor.constraint(equalToConstant: 313.0),
-            labelsStackView.heightAnchor.constraint(equalToConstant: 99.0),
-            labelsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
-
-
-        ].forEach { $0.isActive = true }
+                // Labels Stack
+                labelsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                labelsStackView.widthAnchor.constraint(equalToConstant: 313.0),
+                labelsStackView.heightAnchor.constraint(equalToConstant: 99.0),
+                labelsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
+            ]
+        )
     }
 
     @objc private

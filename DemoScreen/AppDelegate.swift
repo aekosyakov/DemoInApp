@@ -29,12 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private
     func configureAppodeal() {
-        Appodeal.setTestingEnabled(true)
         Appodeal.setLogLevel(.debug)
         Appodeal.setAutocache(true, types: [.banner, .rewardedVideo])
         Appodeal.initialize(withApiKey: appodealApiKey,
                             types: [.banner, .rewardedVideo],
-                            hasConsent: true)
+                            hasConsent: false)
     }
 
 
