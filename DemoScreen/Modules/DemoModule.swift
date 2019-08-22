@@ -40,7 +40,7 @@ class DemoModule: Module {
 
     private
     func handleAction(_ action: DemoAction?) {
-        guard reachability?.connection != nil else {
+        guard reachability?.connection != .none else {
             viewController.showAlert(title: internetConnectionAlertTitle)
             return
         }
