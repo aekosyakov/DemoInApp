@@ -42,6 +42,7 @@
 		301486D12309F6BE00988B2F /* TextAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributes.swift; sourceTree = "<group>"; };
 		301A03FC230E03DA000CC694 /* DemoLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoLabels.swift; sourceTree = "<group>"; };
 		301A03FF230E0586000CC694 /* DemoButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoButtons.swift; sourceTree = "<group>"; };
+		301A0401230EE696000CC694 /* DemoScreen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DemoScreen.entitlements; sourceTree = "<group>"; };
 		302D8089230C89290036D302 /* UIView+Confetti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Confetti.swift"; sourceTree = "<group>"; };
 		304CF4F4230C6BCA0070493A /* IAPServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPServiceProtocol.swift; sourceTree = "<group>"; };
 		7A79079C191B2C4F76937AA0 /* Pods-DemoScreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoScreen.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoScreen/Pods-DemoScreen.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		30113EBA23084C2500446A8C /* DemoScreen */ = {
 			isa = PBXGroup;
 			children = (
+				301A0401230EE696000CC694 /* DemoScreen.entitlements */,
 				30113EBB23084C2500446A8C /* AppDelegate.swift */,
 				304CF4F1230C63930070493A /* Controllers */,
 				304CF4F0230C63880070493A /* Services */,
@@ -203,6 +205,9 @@
 					30113EB723084C2500446A8C = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 1;
+							};
 							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
@@ -506,6 +511,7 @@
 			baseConfigurationReference = 1E236EDD633F9ACBA78F488F /* Pods-DemoScreen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DemoScreen/DemoScreen.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F7996E7693;
 				INFOPLIST_FILE = DemoScreen/Resources/Info.plist;
@@ -526,6 +532,7 @@
 			baseConfigurationReference = 7A79079C191B2C4F76937AA0 /* Pods-DemoScreen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DemoScreen/DemoScreen.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F7996E7693;
 				INFOPLIST_FILE = DemoScreen/Resources/Info.plist;

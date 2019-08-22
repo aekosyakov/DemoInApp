@@ -32,6 +32,10 @@ class DemoModule: Module {
     private
     let reachability = Reachability()
 
+    init() {
+        try? reachability?.startNotifier()
+    }
+
     // MARK: Module
 
     var viewController: UIViewController {
@@ -40,7 +44,7 @@ class DemoModule: Module {
 
     private
     func handleAction(_ action: DemoAction?) {
-        guard reachability?.connection != .none else {
+        guard reachability?.connection.isValid ?? false else {
             viewController.showAlert(title: internetConnectionAlertTitle)
             return
         }
@@ -100,3 +104,16 @@ private
 let internetConnectionAlertTitle = "Please check your Internet connection"
 
 
+private
+extension Reachability.Connection {
+
+    var isValid: Bool {
+        switch self {
+        case .cellular, .wifi:
+            return true
+        default:
+            return false
+        }
+    }
+
+}
