@@ -54,7 +54,7 @@ class IAPService: NSObject, IAPServiceProtocol  {
     }
 
     func loadAvailableSKProducts() {
-        guard !isPremiumPurchased else {
+        guard !isPremiumPurchased || premiumSubscription != nil else {
             return
         }
         let request = SKProductsRequest(productIdentifiers: Set([premiumProductIdentifier]))
@@ -70,9 +70,7 @@ extension IAPService: SKProductsRequestDelegate {
         premiumSubscription = response.products.first { $0.productIdentifier == premiumProductIdentifier }
     }
 
-    func request(_ request: SKRequest, didFailWithError error: Error) {
-        completion?(.failed(with: nil))
-    }
+    func request(_ request: SKRequest, didFailWithError error: Error) {    }
 
 }
 
@@ -91,7 +89,6 @@ extension IAPService: SKPaymentTransactionObserver {
             SKPaymentQueue.default().finishTransaction(premiumTransaction)
             completion?(.failed(with: premiumTransaction.error))
         case .deferred, .purchasing:
-            completion?(.failed(with: nil))
             break
         }
     }

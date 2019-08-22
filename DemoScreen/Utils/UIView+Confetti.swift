@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 enum Colors {
 
@@ -44,6 +45,7 @@ extension UIView {
         emitter.emitterCells = generateEmitterCells()
         layer.addSublayer(emitter)
 
+        AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) { self.removeEmitterLayer() }
     }
 

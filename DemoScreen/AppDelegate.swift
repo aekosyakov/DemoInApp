@@ -30,9 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private
     func configureAppodeal() {
         Appodeal.setLogLevel(.debug)
-        Appodeal.setAutocache(true, types: [.banner, .rewardedVideo])
+        Appodeal.setAutocache(true, types: [.rewardedVideo])
         Appodeal.initialize(withApiKey: appodealApiKey,
-                            types: [.banner, .rewardedVideo],
+                            types: [.rewardedVideo],
                             hasConsent: true)
     }
 
