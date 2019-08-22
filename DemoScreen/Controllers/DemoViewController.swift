@@ -174,8 +174,9 @@ class DemoViewController: UIViewController {
     }
 
     func updateUI() {
-        buyPremiumButton.isEnabled = !iapService.isPremiumPurchased()
-        restoreButton.isEnabled = !iapService.isPremiumPurchased()
+        buyPremiumButton.isEnabled = !iapService.isPremiumPurchased
+        restoreButton.isEnabled = !iapService.isPremiumPurchased
+
         giftImageView.shakeAnimation()
     }
 

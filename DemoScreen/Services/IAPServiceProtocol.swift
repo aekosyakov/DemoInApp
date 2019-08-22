@@ -25,7 +25,7 @@ protocol PremiumPurchasable {
 
     func purchasePremium()
 
-    func isPremiumPurchased() -> Bool
+    var isPremiumPurchased: Bool { get }
 
 }
 

@@ -43,16 +43,20 @@ class IAPService: NSObject, IAPServiceProtocol  {
 
     func purchasePremium() {
         guard let premiumProduct =  premiumSubscription else {
+            loadAvailableSKProducts()
             return
         }
         purchaseProduct(premiumProduct)
     }
 
-    func isPremiumPurchased() -> Bool {
+    var isPremiumPurchased: Bool {
         return UserDefaults.standard.bool(forKey: premiumProductIdentifier)
     }
 
     func loadAvailableSKProducts() {
+        guard !isPremiumPurchased else {
+            return
+        }
         let request = SKProductsRequest(productIdentifiers: Set([premiumProductIdentifier]))
         request.delegate = self
         request.start()
@@ -67,7 +71,7 @@ extension IAPService: SKProductsRequestDelegate {
     }
 
     func request(_ request: SKRequest, didFailWithError error: Error) {
-        completion?(.failed(with: error))
+        completion?(.failed(with: nil))
     }
 
 }
@@ -75,21 +79,20 @@ extension IAPService: SKProductsRequestDelegate {
 extension IAPService: SKPaymentTransactionObserver {
 
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        transactions.forEach {
-            switch $0.transactionState {
-            case .purchased, .restored:
-                if $0.payment.productIdentifier == premiumProductIdentifier, isPremiumPurchased() == false {
-                    UserDefaults.standard.set(true, forKey: premiumProductIdentifier)
-                }
-                SKPaymentQueue.default().finishTransaction($0)
-                completion?(.success)
-            case .failed:
-                SKPaymentQueue.default().finishTransaction($0)
-                completion?(.failed(with: $0.error))
-            case .deferred, .purchasing:
-                completion?(.failed(with: $0.error))
-                break
-            }
+        guard let premiumTransaction = transactions.filter({ $0.payment.productIdentifier == premiumProductIdentifier }).first else {
+            return
+        }
+        switch premiumTransaction.transactionState {
+        case .purchased, .restored:
+            UserDefaults.standard.set(true, forKey: premiumProductIdentifier)
+            SKPaymentQueue.default().finishTransaction(premiumTransaction)
+            completion?(.success)
+        case .failed:
+            SKPaymentQueue.default().finishTransaction(premiumTransaction)
+            completion?(.failed(with: premiumTransaction.error))
+        case .deferred, .purchasing:
+            completion?(.failed(with: nil))
+            break
         }
     }
 
