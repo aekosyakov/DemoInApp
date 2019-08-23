@@ -25,8 +25,6 @@ enum IAPError: Error {
 
 }
 
-
-
 final
 class IAPService: NSObject, IAPServiceProtocol  {
 
@@ -54,7 +52,7 @@ class IAPService: NSObject, IAPServiceProtocol  {
     }
 
     func loadAvailableSKProducts() {
-        guard !isPremiumPurchased || premiumSubscription != nil else {
+        guard !isPremiumPurchased else {
             return
         }
         let request = SKProductsRequest(productIdentifiers: Set([premiumProductIdentifier]))
@@ -82,7 +80,10 @@ extension IAPService: SKPaymentTransactionObserver {
         }
         switch premiumTransaction.transactionState {
         case .purchased, .restored:
-            UserDefaults.standard.set(true, forKey: premiumProductIdentifier)
+            if !UserDefaults.standard.bool(forKey: premiumProductIdentifier) {
+                UserDefaults.standard.set(true, forKey: premiumProductIdentifier)
+                completion?(.success)
+            }
             SKPaymentQueue.default().finishTransaction(premiumTransaction)
             completion?(.success)
         case .failed:

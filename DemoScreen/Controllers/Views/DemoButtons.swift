@@ -23,6 +23,7 @@ extension UIButton {
         return UIButton().with {
             let attributes = TextAttributes(alignment: .center, font: .regular(15), kern: 0.54)
             $0.setAttributedTitle("Premium Free".uppercased().attributed(attributes), for: .normal)
+            $0.setAttributedTitle("Premium Purchased".uppercased().attributed(attributes), for: .disabled)
             $0.setBackgroundImage("red_button".image, for: .normal)
         }
     }
@@ -35,7 +36,7 @@ extension UIButton {
             let restoreTitle = "Restore".uppercased()
             $0.setAttributedTitle(restoreTitle.attributed(attributes), for: .normal)
             $0.setAttributedTitle(restoreTitle.attributed(disabledAttributes), for: .highlighted)
-            $0.setAttributedTitle(restoreTitle.attributed(disabledAttributes), for: .disabled)
+            $0.setAttributedTitle("Restored".attributed(disabledAttributes), for: .disabled)
         }
     }
 

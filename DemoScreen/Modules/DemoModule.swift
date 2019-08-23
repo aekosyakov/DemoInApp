@@ -72,10 +72,10 @@ class DemoModule: Module {
     func transactionCompletion(_ status: PurchaseStatus) {
         (viewController as? DemoViewController)?.updateUI()
         switch status {
-        case .failed(let error):
-            displayErrorIfNeeded(error)
         case .success:
             showConfetti()
+        case .failed(let error):
+            displayErrorIfNeeded(error)
         }
     }
 
