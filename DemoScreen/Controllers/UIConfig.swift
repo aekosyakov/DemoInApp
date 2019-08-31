@@ -10,16 +10,35 @@ import UIKit
 
 class UIConfig {
     
-    var firstButtonColor: UIColor = .white
+    let firstButtonTitle: String
     
-    var secondButtonColor: UIColor = .white
+    let secondButtonTitle: String
     
-    var firstButtonTitle: String = String()
+    let firstButtonColor: UIColor
     
-    var secondButtonTitle: String = String()
+    let secondButtonColor: UIColor
     
+    private(set)
     var backgroundImage: UIImage?
     
     var isPremiumPurchased = false
+    
+    init?(jsonDict: [String: Any]?) {
+        guard
+            let json = jsonDict,
+            let firstHexColor = json["first_button_color"] as? String,
+            let secondHexColor = json["second_button_color"] as? String,
+            let firstTitle = json["first_button_title"] as? String,
+            let secondTitle = json["second_button_title"] as? String,
+            let backgroundImageName = json["background_image"] as? String
+        else {
+            return nil
+        }
+        firstButtonTitle = firstTitle
+        secondButtonTitle = secondTitle
+        firstButtonColor = UIColor(hexString: firstHexColor)
+        secondButtonColor = UIColor(hexString: secondHexColor)
+        backgroundImage = backgroundImageName.image
+    }
     
 }

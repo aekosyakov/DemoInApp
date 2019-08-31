@@ -23,19 +23,26 @@ class DemoModule {
     private
     let reachability = Reachability()
     
-    var viewController: UIViewController?
+    private lazy
+    var tableViewController = TableViewController().with {
+        $0.didPress = { [weak self] variant in self?.showPurchaseScreen(variant: variant) }
+    }
+    
+    var viewController: UIViewController {
+        return tableViewController
+    }
 
     init() {
         try? reachability?.startNotifier()
         
-        RemoteConfig.remoteConfig().setDefaults(appDefaults as? [String: NSObject])
-        let fetchDuration: TimeInterval = 0
-        RemoteConfig.remoteConfig().fetch(withExpirationDuration: fetchDuration) { status, error in
+        let remoteConfig = RemoteConfig.remoteConfig()
+        remoteConfig.fetch(withExpirationDuration: TimeInterval(0)) { status, error in
             if let error = error {
                 print("Error \(error)")
                 return
             }
-            RemoteConfig.remoteConfig().activate(completionHandler: nil)
+            remoteConfig.activate(completionHandler: nil)
+            self.tableViewController.variants = remoteConfig.allKeys(from: .remote)
         }
     }
 
@@ -50,26 +57,16 @@ class DemoModule {
     }
     
     public
-    func showPurchaseScreen(fromViewController: UIViewController) {
-        let uiConfig = UIConfig()
-        let remoteConfig = RemoteConfig.remoteConfig()
-        if let firstButtonColorHex = remoteConfig.configValue(forKey: "first_button_color").stringValue {
-            uiConfig.firstButtonColor = UIColor(hexString: firstButtonColorHex)
+    func showPurchaseScreen(variant: String) {
+        let jsonDict = RemoteConfig.remoteConfig().configValue(forKey: variant).jsonValue as? [String: Any]
+        guard let uiConfig = UIConfig(jsonDict: jsonDict) else {
+            return
         }
+        uiConfig.isPremiumPurchased = self.iapService.isPremiumPurchased
         
-        if let secondButtonColorHex = remoteConfig.configValue(forKey: "second_button_color").stringValue {
-            uiConfig.firstButtonColor = UIColor(hexString: secondButtonColorHex)
-        }
-
-        uiConfig.firstButtonTitle = remoteConfig.configValue(forKey: "first_button_title").stringValue ?? appDefaults["first_button_title"] as! String
-        uiConfig.secondButtonTitle = remoteConfig.configValue(forKey: "second_button_title").stringValue ?? appDefaults["second_button_title"] as! String
-        uiConfig.backgroundImage = remoteConfig.configValue(forKey: "background_image").stringValue?.image
-        uiConfig.isPremiumPurchased = iapService.isPremiumPurchased
-    
         let demoViewController = DemoViewController(uiConfig: uiConfig)
-        demoViewController.action = handleAction
-        fromViewController.present(demoViewController, animated: true, completion: nil)
-        viewController = demoViewController
+        demoViewController.action = self.handleAction
+        self.viewController.present(demoViewController, animated: true, completion: nil)
     }
 
 }
@@ -81,24 +78,14 @@ extension DemoModule {
         guard let error = error else {
             return
         }
-        viewController?.showAlert(title: error.localizedDescription)
+        viewController.showAlert(title: error.localizedDescription)
     }
 
     func showConfetti() {
-        viewController?.view.displayEmitterCells()
+        viewController.view.displayEmitterCells()
     }
 
 }
-
-
-private
-let appDefaults: [String: Any?] = [
-    "first_button_title" : "WATCH VIDEO",
-    "second_button_title" : "FREE PREMIUM",
-    "first_button_color" : "FFDB57",
-    "second_button_color" : "F7434C",
-    "background_image" : "black.pdf"
-]
 
 private
 let cantMakePaymentsAlertTitle = "Sorry, this device is not able or allowed to make payments"
