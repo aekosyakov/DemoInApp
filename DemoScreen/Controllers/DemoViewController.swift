@@ -20,12 +20,12 @@ class DemoViewController: UIViewController {
     var action: ((DemoAction?) -> Void)?
 
     private
-    let iapService: IAPServiceProtocol
+    let uiConfig: UIConfig
 
     // MARK: Subviews
 
     private lazy
-    var backgroundImageView = UIImageView(image: "gradient_background".image)
+    var backgroundImageView = UIImageView(image: uiConfig.backgroundImage)
 
     private
     let giftImageView = UIImageView(image: "icon_gift".image)
@@ -33,14 +33,14 @@ class DemoViewController: UIViewController {
     private lazy
     var titleLabel = UILabel.wallpapersLabel()
 
-    private
-    let watchVideoButton = UIButton.watchVideoButton().with {
+    private lazy
+    var watchVideoButton = UIButton.roundButton(title: uiConfig.firstButtonTitle, tintColor: uiConfig.firstButtonColor).with {
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         $0.tag = DemoAction.watchVideo.rawValue
     }
 
-    private
-    let buyPremiumButton = UIButton.buyPremiumButton().with {
+    private lazy
+    var buyPremiumButton = UIButton.roundButton(title: uiConfig.secondButtonTitle, tintColor: uiConfig.secondButtonColor).with {
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         $0.tag = DemoAction.buyPremium.rawValue
     }
@@ -82,8 +82,8 @@ class DemoViewController: UIViewController {
 
     // MARK: Initialize
 
-    init(iapService: IAPServiceProtocol) {
-        self.iapService = iapService
+    init(uiConfig: UIConfig) {
+        self.uiConfig = uiConfig
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -174,8 +174,8 @@ class DemoViewController: UIViewController {
     }
 
     func updateUI() {
-        buyPremiumButton.isEnabled = !iapService.isPremiumPurchased
-        restoreButton.isEnabled = !iapService.isPremiumPurchased
+        buyPremiumButton.isEnabled = !uiConfig.isPremiumPurchased
+        restoreButton.isEnabled = !uiConfig.isPremiumPurchased
 
         giftImageView.shakeAnimation()
     }

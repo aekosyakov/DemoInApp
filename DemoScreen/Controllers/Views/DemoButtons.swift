@@ -8,23 +8,14 @@
 import UIKit
 
 extension UIButton {
-
+    
     static
-    func watchVideoButton() -> UIButton {
+    func roundButton(title: String, tintColor: UIColor) -> UIButton {
         return UIButton().with {
             let attributes = TextAttributes(alignment: .center, font: .regular(15), foregroundColor: .black, kern: 0.54)
-            $0.setAttributedTitle("Watch Video".uppercased().attributed(attributes), for: .normal)
-            $0.setBackgroundImage("yellow_button".image, for: .normal)
-        }
-    }
-
-    static
-    func buyPremiumButton() -> UIButton {
-        return UIButton().with {
-            let attributes = TextAttributes(alignment: .center, font: .regular(15), kern: 0.54)
-            $0.setAttributedTitle("Premium Free".uppercased().attributed(attributes), for: .normal)
-            $0.setAttributedTitle("Premium Purchased".uppercased().attributed(attributes), for: .disabled)
-            $0.setBackgroundImage("red_button".image, for: .normal)
+            $0.setAttributedTitle(title.uppercased().attributed(attributes), for: .normal)
+            $0.setBackgroundImage("round_button".image?.withRenderingMode(.alwaysTemplate), for: .normal)
+            $0.tintColor = tintColor
         }
     }
 
@@ -36,7 +27,6 @@ extension UIButton {
             let restoreTitle = "Restore".uppercased()
             $0.setAttributedTitle(restoreTitle.attributed(attributes), for: .normal)
             $0.setAttributedTitle(restoreTitle.attributed(disabledAttributes), for: .highlighted)
-            $0.setAttributedTitle("Restored".attributed(disabledAttributes), for: .disabled)
         }
     }
 

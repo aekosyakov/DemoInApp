@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,9 @@
 		301A0400230E0586000CC694 /* DemoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A03FF230E0586000CC694 /* DemoButtons.swift */; };
 		302D808A230C89290036D302 /* UIView+Confetti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D8089230C89290036D302 /* UIView+Confetti.swift */; };
 		304CF4F5230C6BCA0070493A /* IAPServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304CF4F4230C6BCA0070493A /* IAPServiceProtocol.swift */; };
+		D08798362319C1FB004E174A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D08798352319C1FB004E174A /* GoogleService-Info.plist */; };
+		D09C4128231A93C900A1FE22 /* UIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4127231A93C800A1FE22 /* UIConfig.swift */; };
+		D09C412A231A99D800A1FE22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4129231A99D800A1FE22 /* ViewController.swift */; };
 		DA0E98B77640CF6D94B2A6B1 /* Pods_DemoScreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C6C425511C3D998499FC2D /* Pods_DemoScreen.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,9 @@
 		304CF4F4230C6BCA0070493A /* IAPServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPServiceProtocol.swift; sourceTree = "<group>"; };
 		7A79079C191B2C4F76937AA0 /* Pods-DemoScreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoScreen.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoScreen/Pods-DemoScreen.release.xcconfig"; sourceTree = "<group>"; };
 		B4C6C425511C3D998499FC2D /* Pods_DemoScreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoScreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D08798352319C1FB004E174A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D09C4127231A93C800A1FE22 /* UIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfig.swift; sourceTree = "<group>"; };
+		D09C4129231A99D800A1FE22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				30113EBB23084C2500446A8C /* AppDelegate.swift */,
+				D08798352319C1FB004E174A /* GoogleService-Info.plist */,
+				D09C4129231A99D800A1FE22 /* ViewController.swift */,
 				304CF4F1230C63930070493A /* Controllers */,
 				304CF4F0230C63880070493A /* Services */,
 				301486BF23089E7B00988B2F /* Modules */,
@@ -156,6 +164,7 @@
 				301A03FE230E0558000CC694 /* Views */,
 				30113EBD23084C2500446A8C /* DemoViewController.swift */,
 				301486CB2309BFCB00988B2F /* RewardedVideoController.swift */,
+				D09C4127231A93C800A1FE22 /* UIConfig.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -239,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30113EC623084C2600446A8C /* LaunchScreen.storyboard in Resources */,
+				D08798362319C1FB004E174A /* GoogleService-Info.plist in Resources */,
 				30113EDE2308659000446A8C /* Default-568h@2x.png in Resources */,
 				30113EC323084C2600446A8C /* Assets.xcassets in Resources */,
 			);
@@ -253,62 +263,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DemoScreen/Pods-DemoScreen-resources.sh",
-				"${PODS_ROOT}/Appodeal/APDStartAppAdapter.embeddedframework/Resources/StartApp.bundle",
-				"${PODS_ROOT}/Appodeal/APDTapjoyAdapter.embeddedframework/Resources/TapjoyResources.bundle",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPAdBrowserController.xib",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPCloseBtn.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPCloseBtn@2x.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPCloseBtn@3x.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPCloseButtonX.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPCloseButtonX@2x.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPCloseButtonX@3x.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPDAAIcon.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPDAAIcon@2x.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPDAAIcon@3x.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPMutedBtn.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPMutedBtn@2x.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPMutedBtn@3x.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPPlayBtn.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPPlayBtn@2x.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPPlayBtn@3x.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPUnmutedBtn.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPUnmutedBtn@2x.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MPUnmutedBtn@3x.png",
-				"${PODS_ROOT}/Appodeal/APDTwitterMoPubAdapter.embeddedframework/Resources/MRAID.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-DemoScreen/Pods-DemoScreen-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StartApp.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TapjoyResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPAdBrowserController.nib",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPCloseBtn.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPCloseBtn@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPCloseBtn@3x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPCloseButtonX.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPCloseButtonX@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPCloseButtonX@3x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPDAAIcon.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPDAAIcon@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPDAAIcon@3x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPMutedBtn.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPMutedBtn@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPMutedBtn@3x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPPlayBtn.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPPlayBtn@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPPlayBtn@3x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPUnmutedBtn.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPUnmutedBtn@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPUnmutedBtn@3x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MRAID.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-DemoScreen/Pods-DemoScreen-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoScreen/Pods-DemoScreen-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DemoScreen/Pods-DemoScreen-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AC0B24EEFB71B80AE9364DFF /* [CP] Check Pods Manifest.lock */ = {
@@ -339,20 +302,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DemoScreen/Pods-DemoScreen-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-DemoScreen/Pods-DemoScreen-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-DemoScreen/Pods-DemoScreen-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoScreen/Pods-DemoScreen-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DemoScreen/Pods-DemoScreen-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -362,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09C4128231A93C900A1FE22 /* UIConfig.swift in Sources */,
 				302D808A230C89290036D302 /* UIView+Confetti.swift in Sources */,
 				301486CA23089F1F00988B2F /* DemoModule.swift in Sources */,
 				30113EDB2308582000446A8C /* Utils.swift in Sources */,
@@ -369,6 +328,7 @@
 				30113EBE23084C2500446A8C /* DemoViewController.swift in Sources */,
 				304CF4F5230C6BCA0070493A /* IAPServiceProtocol.swift in Sources */,
 				301486D22309F6BE00988B2F /* TextAttributes.swift in Sources */,
+				D09C412A231A99D800A1FE22 /* ViewController.swift in Sources */,
 				30113EBC23084C2500446A8C /* AppDelegate.swift in Sources */,
 				301486CC2309BFCB00988B2F /* RewardedVideoController.swift in Sources */,
 				301A0400230E0586000CC694 /* DemoButtons.swift in Sources */,
