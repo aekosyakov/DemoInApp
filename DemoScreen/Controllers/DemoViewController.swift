@@ -47,7 +47,10 @@ class DemoViewController: UIViewController {
 
 
     private
-    let closeButton = UIButton().with { $0.setImage("icon_close".image, for: .normal) }
+    let closeButton = UIButton().with {
+        $0.addTarget(self, action: #selector(close), for: .touchUpInside)
+        $0.setImage("icon_close".image, for: .normal)
+    }
 
     private
     let restoreButton = UIButton.restoreButton().with {
@@ -178,6 +181,11 @@ class DemoViewController: UIViewController {
         restoreButton.isEnabled = !uiConfig.isPremiumPurchased
 
         giftImageView.shakeAnimation()
+    }
+    
+    @objc private
+    func close() {
+        dismiss(animated: true)
     }
 
 }

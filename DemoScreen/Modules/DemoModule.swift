@@ -34,7 +34,7 @@ class DemoModule {
 
     init() {
         try? reachability?.startNotifier()
-        
+        FirebaseApp.configure()
         let remoteConfig = RemoteConfig.remoteConfig()
         remoteConfig.fetch(withExpirationDuration: TimeInterval(0)) { status, error in
             if let error = error {
@@ -42,7 +42,8 @@ class DemoModule {
                 return
             }
             remoteConfig.activate(completionHandler: nil)
-            self.tableViewController.variants = remoteConfig.allKeys(from: .remote)
+            let keys = remoteConfig.keys(withPrefix: "variant")
+            self.tableViewController.variants = Array(keys)
         }
     }
 
