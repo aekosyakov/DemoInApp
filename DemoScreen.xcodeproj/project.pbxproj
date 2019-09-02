@@ -8,19 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		30113EBC23084C2500446A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30113EBB23084C2500446A8C /* AppDelegate.swift */; };
-		30113EBE23084C2500446A8C /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30113EBD23084C2500446A8C /* DemoViewController.swift */; };
+		30113EBE23084C2500446A8C /* WAL02ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30113EBD23084C2500446A8C /* WAL02ViewController.swift */; };
 		30113EC323084C2600446A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30113EC223084C2600446A8C /* Assets.xcassets */; };
 		30113EC623084C2600446A8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30113EC423084C2600446A8C /* LaunchScreen.storyboard */; };
 		30113EDB2308582000446A8C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30113EDA2308582000446A8C /* Utils.swift */; };
 		30113EDE2308659000446A8C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30113EDD2308659000446A8C /* Default-568h@2x.png */; };
-		301486CA23089F1F00988B2F /* DemoModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301486C923089F1F00988B2F /* DemoModule.swift */; };
+		301486CA23089F1F00988B2F /* WAL02Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301486C923089F1F00988B2F /* WAL02Module.swift */; };
 		301486CF2309DB9F00988B2F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301486CE2309DB9F00988B2F /* StoreKit.framework */; };
 		301486D22309F6BE00988B2F /* TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301486D12309F6BE00988B2F /* TextAttributes.swift */; };
 		301A03FD230E03DA000CC694 /* DemoLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A03FC230E03DA000CC694 /* DemoLabels.swift */; };
 		301A0400230E0586000CC694 /* DemoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A03FF230E0586000CC694 /* DemoButtons.swift */; };
 		D08798362319C1FB004E174A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D08798352319C1FB004E174A /* GoogleService-Info.plist */; };
-		D09C4128231A93C900A1FE22 /* UIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4127231A93C800A1FE22 /* UIConfig.swift */; };
-		D09C412C231B1D2F00A1FE22 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C412B231B1D2F00A1FE22 /* TableViewController.swift */; };
+		D09C4128231A93C900A1FE22 /* WAL02UIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4127231A93C800A1FE22 /* WAL02UIConfig.swift */; };
+		D09C412C231B1D2F00A1FE22 /* WAL02TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C412B231B1D2F00A1FE22 /* WAL02TableViewController.swift */; };
 		DA0E98B77640CF6D94B2A6B1 /* Pods_DemoScreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C6C425511C3D998499FC2D /* Pods_DemoScreen.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,13 +28,13 @@
 		1E236EDD633F9ACBA78F488F /* Pods-DemoScreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoScreen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoScreen/Pods-DemoScreen.debug.xcconfig"; sourceTree = "<group>"; };
 		30113EB823084C2500446A8C /* DemoScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30113EBB23084C2500446A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30113EBD23084C2500446A8C /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		30113EBD23084C2500446A8C /* WAL02ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAL02ViewController.swift; sourceTree = "<group>"; };
 		30113EC223084C2600446A8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30113EC523084C2600446A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30113EC723084C2600446A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30113EDA2308582000446A8C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		30113EDD2308659000446A8C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		301486C923089F1F00988B2F /* DemoModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModule.swift; sourceTree = "<group>"; };
+		301486C923089F1F00988B2F /* WAL02Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAL02Module.swift; sourceTree = "<group>"; };
 		301486CE2309DB9F00988B2F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		301486D12309F6BE00988B2F /* TextAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributes.swift; sourceTree = "<group>"; };
 		301A03FC230E03DA000CC694 /* DemoLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoLabels.swift; sourceTree = "<group>"; };
@@ -43,8 +43,8 @@
 		7A79079C191B2C4F76937AA0 /* Pods-DemoScreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoScreen.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoScreen/Pods-DemoScreen.release.xcconfig"; sourceTree = "<group>"; };
 		B4C6C425511C3D998499FC2D /* Pods_DemoScreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoScreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D08798352319C1FB004E174A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D09C4127231A93C800A1FE22 /* UIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfig.swift; sourceTree = "<group>"; };
-		D09C412B231B1D2F00A1FE22 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		D09C4127231A93C800A1FE22 /* WAL02UIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAL02UIConfig.swift; sourceTree = "<group>"; };
+		D09C412B231B1D2F00A1FE22 /* WAL02TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAL02TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 		301486BF23089E7B00988B2F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				301486C923089F1F00988B2F /* DemoModule.swift */,
+				301486C923089F1F00988B2F /* WAL02Module.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -142,9 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				301A03FE230E0558000CC694 /* Views */,
-				30113EBD23084C2500446A8C /* DemoViewController.swift */,
-				D09C412B231B1D2F00A1FE22 /* TableViewController.swift */,
-				D09C4127231A93C800A1FE22 /* UIConfig.swift */,
+				30113EBD23084C2500446A8C /* WAL02ViewController.swift */,
+				D09C412B231B1D2F00A1FE22 /* WAL02TableViewController.swift */,
+				D09C4127231A93C800A1FE22 /* WAL02UIConfig.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -282,12 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D09C4128231A93C900A1FE22 /* UIConfig.swift in Sources */,
-				301486CA23089F1F00988B2F /* DemoModule.swift in Sources */,
+				D09C4128231A93C900A1FE22 /* WAL02UIConfig.swift in Sources */,
+				301486CA23089F1F00988B2F /* WAL02Module.swift in Sources */,
 				30113EDB2308582000446A8C /* Utils.swift in Sources */,
-				30113EBE23084C2500446A8C /* DemoViewController.swift in Sources */,
+				30113EBE23084C2500446A8C /* WAL02ViewController.swift in Sources */,
 				301486D22309F6BE00988B2F /* TextAttributes.swift in Sources */,
-				D09C412C231B1D2F00A1FE22 /* TableViewController.swift in Sources */,
+				D09C412C231B1D2F00A1FE22 /* WAL02TableViewController.swift in Sources */,
 				30113EBC23084C2500446A8C /* AppDelegate.swift in Sources */,
 				301A0400230E0586000CC694 /* DemoButtons.swift in Sources */,
 				301A03FD230E03DA000CC694 /* DemoLabels.swift in Sources */,

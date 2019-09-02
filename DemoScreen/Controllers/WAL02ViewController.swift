@@ -1,5 +1,5 @@
 //
-//  DemoViewController.swift
+//  WAL02ViewController.swift
 //  DemoScreen
 //
 //  Copyright © 2019 Alexander Kosyakov. All rights reserved.
@@ -12,7 +12,7 @@ enum DemoAction: Int {
 }
 
 final
-class DemoViewController: UIViewController {
+class WAL02ViewController: UIViewController {
 
     // MARK: Properties
 
@@ -20,7 +20,7 @@ class DemoViewController: UIViewController {
     var action: ((DemoAction?) -> Void)?
 
     private
-    let uiConfig: UIConfig
+    let uiConfig: WAL02UIConfig
 
     // MARK: Subviews
 
@@ -85,7 +85,7 @@ class DemoViewController: UIViewController {
 
     // MARK: Initialize
 
-    init(uiConfig: UIConfig) {
+    init(uiConfig: WAL02UIConfig) {
         self.uiConfig = uiConfig
         super.init(nibName: nil, bundle: nil)
     }

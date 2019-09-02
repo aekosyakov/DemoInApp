@@ -1,5 +1,5 @@
 //
-//  DemoModule.swift
+//  WAL02Module.swift
 //  DemoScreen
 //
 //  Copyright © 2019 Alexander Kosyakov. All rights reserved.
@@ -9,16 +9,16 @@ import UIKit
 import Firebase
 
 final
-class DemoModule {
+class WAL02Module {
     
-    var handleAction:((DemoAction?) -> Void)?
+    var handleAction:((Int?) -> Void)?
     
     var viewController: UIViewController {
         return tableViewController
     }
     
     private lazy
-    var tableViewController = TableViewController().with {
+    var tableViewController = WAL02TableViewController().with {
         $0.didPress = { [weak self] variant in self?.showDemoScreen(variant: variant) }
     }
 
@@ -39,12 +39,14 @@ class DemoModule {
     private
     func showDemoScreen(variant: String) {
         let jsonDict = RemoteConfig.remoteConfig().configValue(forKey: variant).jsonValue as? [String: Any]
-        guard let uiConfig = UIConfig(jsonDict: jsonDict) else {
+        guard let uiConfig = WAL02UIConfig(jsonDict: jsonDict) else {
             return
         }
         
-        let demoViewController = DemoViewController(uiConfig: uiConfig)
-        demoViewController.action = self.handleAction
+        let demoViewController = WAL02ViewController(uiConfig: uiConfig)
+        demoViewController.action = { [weak self] action in
+            self?.handleAction?(action?.rawValue)
+        }
         self.viewController.present(demoViewController, animated: true, completion: nil)
     }
 

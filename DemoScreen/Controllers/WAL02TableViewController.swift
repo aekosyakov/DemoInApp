@@ -1,5 +1,5 @@
 //
-//  TableViewController.swift
+//  VAL2TableViewController.swift
 //  DemoScreen
 //
 //  Copyright © 2019 Alexander Kosyakov. All rights reserved.
@@ -8,7 +8,7 @@
 import UIKit
 
 final
-class TableViewController: UITableViewController {
+class WAL02TableViewController: UITableViewController {
     
     var didPress:((String) -> Void)?
     
