@@ -1,5 +1,5 @@
 //
-//  UIConfig.swift
+//  WAL02UIConfig.swift
 //  DemoScreen
 //
 //  Copyright © 2019 Alexander Kosyakov. All rights reserved.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class UIConfig {
+class WAL02UIConfig {
     
     let firstButtonTitle: String
     
