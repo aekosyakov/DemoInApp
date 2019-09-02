@@ -7,6 +7,14 @@
 
 import UIKit
 
+enum Action {
+    
+    static let restoreButton = 0
+    static let watchVideoButton = 1
+    static let premiumFreeButton = 2
+
+}
+
 enum DemoAction: Int {
     case watchVideo, buyPremium, restore
 }
@@ -113,6 +121,9 @@ class WAL02ViewController: UIViewController {
             view?.addSubview($0)
         }
         setupLayout()
+        
+        print(Action.premiumFreeButton)
+        print(type(of: Action.restoreButton))
     }
 
     override

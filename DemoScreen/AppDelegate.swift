@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         demoModule.handleAction = { action in
             print(action!)
+            print(type(of: action!))
         }
         return true
     }
