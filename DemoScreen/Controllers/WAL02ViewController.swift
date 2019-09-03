@@ -35,48 +35,65 @@ class WAL02ViewController: UIViewController {
     private lazy
     var backgroundImageView = UIImageView(image: uiConfig.backgroundImage)
 
-    private
-    let giftImageView = UIImageView(image: "icon_gift".image)
+    private lazy
+    var giftImageView = UIImageView(image: uiConfig.titleImage)
 
     private lazy
-    var titleLabel = UILabel.wallpapersLabel()
-
-    private lazy
-    var watchVideoButton = UIButton.roundButton(title: uiConfig.firstButtonTitle, tintColor: uiConfig.firstButtonColor).with {
-        $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        $0.tag = DemoAction.watchVideo.rawValue
+    var titleLabel = UILabel().with {
+        $0.attributedText = uiConfig.attributedTitle
+        $0.numberOfLines = 2
     }
 
     private lazy
-    var buyPremiumButton = UIButton.roundButton(title: uiConfig.secondButtonTitle, tintColor: uiConfig.secondButtonColor).with {
+    var videoButton = UIButton().with {
+        let attributes = TextAttributes(alignment: .center, font: .regular(15), foregroundColor: .black, kern: 0.54)
+        $0.setAttributedTitle(uiConfig.video_button_title.uppercased().attributed(attributes), for: .normal)
+        $0.setBackgroundImage("yellow_button".image?.withRenderingMode(.alwaysTemplate), for: .normal)
+        $0.tintColor = uiConfig.video_button_color
+        $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        $0.tag = DemoAction.watchVideo.rawValue
+    }
+    
+    private lazy
+    var premiumButton = UIButton().with {
+        let attributes = TextAttributes(alignment: .center, font: .regular(15), foregroundColor: .black, kern: 0.54)
+        $0.setAttributedTitle(uiConfig.premium_button_title.uppercased().attributed(attributes), for: .normal)
+        $0.setBackgroundImage("red_button".image?.withRenderingMode(.alwaysTemplate), for: .normal)
+        $0.tintColor = uiConfig.premium_button_color
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         $0.tag = DemoAction.buyPremium.rawValue
     }
 
-
     private
     let closeButton = UIButton().with {
         $0.addTarget(self, action: #selector(close), for: .touchUpInside)
-        $0.setImage("icon_close".image, for: .normal)
+        $0.setImage("close".image, for: .normal)
     }
 
-    private
-    let restoreButton = UIButton.restoreButton().with {
+    private lazy
+    var restoreButton = UIButton().with {
+        $0.setTitleColor(uiConfig.restore_button_text_color, for: .normal)
+        let attributes = TextAttributes(alignment: .center, font: .regular(11), foregroundColor: uiConfig.restore_button_text_color)
+        $0.setAttributedTitle("Restore".uppercased().attributed(attributes), for: .normal)
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         $0.tag = DemoAction.restore.rawValue
     }
 
-    private
-    let purchaseLabel = UILabel().with {
-        let attributes = TextAttributes(alignment: .center, font: .regular(10))
+    private lazy
+    var purchaseLabel = UILabel().with {
+        let attributes = TextAttributes(alignment: .center, font: .regular(10), foregroundColor: uiConfig.term_of_use_text_color)
         $0.attributedText = "3 days free, after 3$ / month".attributed(attributes)
     }
 
-    private
-    let termsOfUseLabel = UILabel.termsOfUseLabel()
+    private lazy
+    var termsOfUseLabel = UILabel().with {
+        $0.attributedText = uiConfig.attributedTermsOfUse
+        $0.alpha = 0.5
+        $0.numberOfLines = 0
+    }
 
     private lazy
-    var buttonsStackView = UIStackView(arrangedSubviews: [watchVideoButton, buyPremiumButton]).with {
+    var buttonsStackView = UIStackView(arrangedSubviews: [videoButton, premiumButton]).with {
         $0.axis = .vertical
         $0.distribution = .equalSpacing
         $0.alignment = .center
@@ -121,9 +138,6 @@ class WAL02ViewController: UIViewController {
             view?.addSubview($0)
         }
         setupLayout()
-        
-        print(Action.premiumFreeButton)
-        print(type(of: Action.restoreButton))
     }
 
     override
@@ -188,7 +202,7 @@ class WAL02ViewController: UIViewController {
     }
 
     func updateUI() {
-        buyPremiumButton.isEnabled = !uiConfig.isPremiumPurchased
+        premiumButton.isEnabled = !uiConfig.isPremiumPurchased
         restoreButton.isEnabled = !uiConfig.isPremiumPurchased
 
         giftImageView.shakeAnimation()
