@@ -22,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.makeKeyAndVisible()
         
         demoModule.handleAction = { action in
-            print(action!)
-            print(type(of: action!))
+            print(action ?? 0)
         }
         return true
     }

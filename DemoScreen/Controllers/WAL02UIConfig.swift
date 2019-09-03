@@ -14,27 +14,30 @@ class WAL02UIConfig {
     
     let subtitle: String
     
-    let video_button_title: String
+    let videoButtonTitle: String
     
-    let premium_button_title: String
+    let premiumButtonTitle: String
     
-    let restore_button_title: String
+    let restoreButtonTitle: String
 
     
-    let title_color: UIColor
+    let titleColor: UIColor
     
-    let subtitle_color: UIColor
+    let subtitleColor: UIColor
     
-    let video_button_color: UIColor
+    let restoreButtonTextColor: UIColor
     
-    let premium_button_color: UIColor
-    
-    let restore_button_text_color: UIColor
-    
-    let term_of_use_text_color: UIColor
+    let termsOfUseTextColor: UIColor
+
     
     private(set)
     var titleImage: UIImage?
+    
+    private(set)
+    var videoButtonImage: UIImage?
+    
+    private(set)
+    var premiumButtonImage: UIImage?
 
     private(set)
     var backgroundImage: UIImage?
@@ -51,8 +54,8 @@ class WAL02UIConfig {
             let restore_button_title = json["restore_button_title"] as? String,
             let title_color_hex = json["title_color"] as? String,
             let subtitle_color_hex = json["subtitle_color"] as? String,
-            let video_button_color_hex = json["video_button_color"] as? String,
-            let premium_button_color_hex = json["premium_button_color"] as? String,
+            let video_button_image_name = json["video_button_image"] as? String,
+            let premium_button_image_name = json["premium_button_image"] as? String,
             let restore_button_text_color_hex = json["restore_button_text_color"] as? String,
             let term_of_use_text_color_hex = json["term_of_use_text_color"] as? String,
             let backgroundImageName = json["background_image"] as? String
@@ -61,16 +64,16 @@ class WAL02UIConfig {
         }
         self.title = title
         self.subtitle = subtitle
-        self.video_button_title = video_button_title
-        self.premium_button_title = premium_button_title
-        self.restore_button_title = restore_button_title
+        self.videoButtonTitle = video_button_title
+        self.premiumButtonTitle = premium_button_title
+        self.restoreButtonTitle = restore_button_title
 
-        title_color = UIColor(hexString: title_color_hex)
-        subtitle_color = UIColor(hexString: subtitle_color_hex)
-        video_button_color = UIColor(hexString: video_button_color_hex)
-        premium_button_color = UIColor(hexString: premium_button_color_hex)
-        restore_button_text_color = UIColor(hexString: restore_button_text_color_hex)
-        term_of_use_text_color = UIColor(hexString: term_of_use_text_color_hex)
+        titleColor = UIColor(hexString: title_color_hex)
+        subtitleColor = UIColor(hexString: subtitle_color_hex)
+        videoButtonImage = video_button_image_name.image
+        premiumButtonImage = premium_button_image_name.image
+        restoreButtonTextColor = UIColor(hexString: restore_button_text_color_hex)
+        termsOfUseTextColor = UIColor(hexString: term_of_use_text_color_hex)
         titleImage = (json["title_image"] as? String)?.image
         backgroundImage = backgroundImageName.image
     }
@@ -89,8 +92,8 @@ extension WAL02UIConfig {
     }
     
     var attributedTermsOfUse: NSAttributedString {
-        let termsOfUseAttributes = TextAttributes(alignment: .justified, font: .regular(10), foregroundColor: term_of_use_text_color, kern: 0.36, lineHeight: 12).dictionary
-        let additionalAttributes = TextAttributes(alignment: .center, font: .regular(10), foregroundColor: term_of_use_text_color, kern: 0.36, lineHeight: 12).dictionary
+        let termsOfUseAttributes = TextAttributes(alignment: .justified, font: .regular(10), foregroundColor: termsOfUseTextColor, kern: 0.36, lineHeight: 12).dictionary
+        let additionalAttributes = TextAttributes(alignment: .center, font: .regular(10), foregroundColor: termsOfUseTextColor, kern: 0.36, lineHeight: 12).dictionary
         let mutableAttributedString = NSMutableAttributedString(string: termsOfUse, attributes: termsOfUseAttributes)
         mutableAttributedString.append(NSAttributedString(string: "Terms of Use | Security policy", attributes: additionalAttributes))
         return NSAttributedString(attributedString: mutableAttributedString)

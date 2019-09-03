@@ -47,9 +47,8 @@ class WAL02ViewController: UIViewController {
     private lazy
     var videoButton = UIButton().with {
         let attributes = TextAttributes(alignment: .center, font: .regular(15), foregroundColor: .black, kern: 0.54)
-        $0.setAttributedTitle(uiConfig.video_button_title.uppercased().attributed(attributes), for: .normal)
-        $0.setBackgroundImage("yellow_button".image?.withRenderingMode(.alwaysTemplate), for: .normal)
-        $0.tintColor = uiConfig.video_button_color
+        $0.setAttributedTitle(uiConfig.videoButtonTitle.uppercased().attributed(attributes), for: .normal)
+        $0.setBackgroundImage(uiConfig.videoButtonImage, for: .normal)
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         $0.tag = DemoAction.watchVideo.rawValue
     }
@@ -57,9 +56,8 @@ class WAL02ViewController: UIViewController {
     private lazy
     var premiumButton = UIButton().with {
         let attributes = TextAttributes(alignment: .center, font: .regular(15), foregroundColor: .black, kern: 0.54)
-        $0.setAttributedTitle(uiConfig.premium_button_title.uppercased().attributed(attributes), for: .normal)
-        $0.setBackgroundImage("red_button".image?.withRenderingMode(.alwaysTemplate), for: .normal)
-        $0.tintColor = uiConfig.premium_button_color
+        $0.setAttributedTitle(uiConfig.premiumButtonTitle.uppercased().attributed(attributes), for: .normal)
+        $0.setBackgroundImage(uiConfig.premiumButtonImage, for: .normal)
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         $0.tag = DemoAction.buyPremium.rawValue
     }
@@ -72,8 +70,8 @@ class WAL02ViewController: UIViewController {
 
     private lazy
     var restoreButton = UIButton().with {
-        $0.setTitleColor(uiConfig.restore_button_text_color, for: .normal)
-        let attributes = TextAttributes(alignment: .center, font: .regular(11), foregroundColor: uiConfig.restore_button_text_color)
+        $0.setTitleColor(uiConfig.restoreButtonTextColor, for: .normal)
+        let attributes = TextAttributes(alignment: .center, font: .regular(11), foregroundColor: uiConfig.restoreButtonTextColor)
         $0.setAttributedTitle("Restore".uppercased().attributed(attributes), for: .normal)
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         $0.tag = DemoAction.restore.rawValue
@@ -81,7 +79,7 @@ class WAL02ViewController: UIViewController {
 
     private lazy
     var purchaseLabel = UILabel().with {
-        let attributes = TextAttributes(alignment: .center, font: .regular(10), foregroundColor: uiConfig.term_of_use_text_color)
+        let attributes = TextAttributes(alignment: .center, font: .regular(10), foregroundColor: uiConfig.termsOfUseTextColor)
         $0.attributedText = "3 days free, after 3$ / month".attributed(attributes)
     }
 
