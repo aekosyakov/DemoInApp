@@ -1,8 +1,5 @@
 //
 //  WAL02ViewController.swift
-//  DemoScreen
-//
-//  Copyright © 2019 Alexander Kosyakov. All rights reserved.
 //
 
 import UIKit
@@ -38,7 +35,7 @@ class WAL02ViewController: UIViewController {
 
     private lazy
     var videoButton = UIButton().with {
-        let attributes = TextAttributes(alignment: .center, font: .regular(15), foregroundColor: uiConfig.videoButtonTextColor, kern: 0.54)
+        let attributes = TextAttributes(alignment: .center, font: uiConfig.font(15), foregroundColor: uiConfig.videoButtonTextColor, kern: 0.54)
         $0.setAttributedTitle(uiConfig.videoButtonTitle.uppercased().attributed(attributes), for: .normal)
         $0.setBackgroundImage(uiConfig.videoButtonImage, for: .normal)
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
@@ -47,7 +44,7 @@ class WAL02ViewController: UIViewController {
     
     private lazy
     var premiumButton = UIButton().with {
-        let attributes = TextAttributes(alignment: .center, font: .regular(15), foregroundColor: uiConfig.premiumButtonTextColor, kern: 0.54)
+        let attributes = TextAttributes(alignment: .center, font: uiConfig.font(15), foregroundColor: uiConfig.premiumButtonTextColor, kern: 0.54)
         $0.setAttributedTitle(uiConfig.premiumButtonTitle.uppercased().attributed(attributes), for: .normal)
         $0.setBackgroundImage(uiConfig.premiumButtonImage, for: .normal)
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)

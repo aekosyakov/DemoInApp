@@ -12,16 +12,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private lazy
-    var demoModule = WAL02Module()
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = UINavigationController(rootViewController: demoModule.viewController) 
+        window!.rootViewController = UINavigationController(rootViewController: UIViewController())
         window!.makeKeyAndVisible()
-        
-        demoModule.handleAction = { print($0) }
+
         return true
     }
 

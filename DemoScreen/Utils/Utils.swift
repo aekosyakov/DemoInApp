@@ -1,12 +1,10 @@
 //
 //  UIView+Extensions.swift
-//  DemoScreen
-//
-//  Copyright © 2019 Alexander Kosyakov. All rights reserved.
 //
 
 import UIKit
 
+public
 extension UIView {
 
     func addSubviews(_ subviews: UIView...) {
@@ -21,6 +19,7 @@ extension UIView {
 
 }
 
+public
 extension UIView {
 
     func shakeAnimation() {
@@ -41,15 +40,7 @@ extension UIView {
 
 }
 
-extension UIFont {
-
-    static
-    func regular(_ size: CGFloat) -> UIFont {
-        return UIFont(name: "HelveticaNeue", size: size) ?? UIFont.systemFont(ofSize: size)
-    }
-
-}
-
+public
 extension String {
 
     var image: UIImage? {
@@ -58,6 +49,7 @@ extension String {
 
 }
 
+public
 extension NSObjectProtocol {
 
     func with(_ closure: (Self) -> Void) -> Self {
@@ -67,6 +59,7 @@ extension NSObjectProtocol {
 
 }
 
+public
 extension UIColor {
 
     convenience
@@ -91,27 +84,6 @@ extension UIColor {
         let blue  = CGFloat(b) / 255.0
         
         self.init(red:red, green:green, blue:blue, alpha:alpha)
-    }
-
-}
-
-extension UIViewController {
-
-    func showAlert(title: String) {
-        let alert = UIAlertController(
-            title: title,
-            message: nil,
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
-        present(alert, animated: true, completion: nil)
-    }
-
-
-    func dismissPresentedVC() {
-        if presentedViewController != nil {
-            dismiss(animated: true)
-        }
     }
 
 }

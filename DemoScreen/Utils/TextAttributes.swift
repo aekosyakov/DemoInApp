@@ -1,8 +1,5 @@
 //
 //  TextAttributes.swift
-//  DemoScreen
-//
-//  Copyright © 2019 Alexander Kosyakov. All rights reserved.
 //
 
 import UIKit

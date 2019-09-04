@@ -6,7 +6,6 @@ inhibit_all_warnings!
 platform :ios, '11.0'
 
 target 'DemoScreen' do
-pod 'ReachabilitySwift'
 pod 'Firebase/Analytics'
 pod 'Firebase/RemoteConfig'
 end
