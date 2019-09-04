@@ -21,9 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.rootViewController = UINavigationController(rootViewController: demoModule.viewController) 
         window!.makeKeyAndVisible()
         
-        demoModule.handleAction = { action in
-            print(action ?? 0)
-        }
+        demoModule.handleAction = { print($0) }
         return true
     }
 

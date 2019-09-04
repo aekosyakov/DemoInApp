@@ -11,7 +11,7 @@ import Firebase
 final
 class WAL02Module {
     
-    var handleAction:((Int?) -> Void)?
+    var handleAction:((Int) -> Void)?
     
     var viewController: UIViewController {
         return tableViewController
@@ -25,6 +25,7 @@ class WAL02Module {
     init() {
         FirebaseApp.configure()
         let remoteConfig = RemoteConfig.remoteConfig()
+
         remoteConfig.fetch(withExpirationDuration: TimeInterval(0)) { status, error in
             if let error = error {
                 print("Error \(error)")
@@ -44,9 +45,7 @@ class WAL02Module {
         }
         
         let demoViewController = WAL02ViewController(uiConfig: uiConfig)
-        demoViewController.action = { [weak self] action in
-            self?.handleAction?(action?.rawValue)
-        }
+        demoViewController.action = handleAction
         self.viewController.present(demoViewController, animated: true, completion: nil)
     }
 

@@ -7,16 +7,8 @@
 
 import UIKit
 
-enum Action {
-    
-    static let restoreButton = 0
-    static let watchVideoButton = 1
-    static let premiumFreeButton = 2
-
-}
-
 enum DemoAction: Int {
-    case watchVideo, buyPremium, restore
+    case watchVideo, buyPremium, restore, termsOfUse
 }
 
 final
@@ -25,7 +17,7 @@ class WAL02ViewController: UIViewController {
     // MARK: Properties
 
     public
-    var action: ((DemoAction?) -> Void)?
+    var action: ((Int) -> Void)?
 
     private
     let uiConfig: WAL02UIConfig
@@ -46,7 +38,7 @@ class WAL02ViewController: UIViewController {
 
     private lazy
     var videoButton = UIButton().with {
-        let attributes = TextAttributes(alignment: .center, font: .regular(15), foregroundColor: .black, kern: 0.54)
+        let attributes = TextAttributes(alignment: .center, font: .regular(15), foregroundColor: uiConfig.videoButtonTextColor, kern: 0.54)
         $0.setAttributedTitle(uiConfig.videoButtonTitle.uppercased().attributed(attributes), for: .normal)
         $0.setBackgroundImage(uiConfig.videoButtonImage, for: .normal)
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
@@ -55,7 +47,7 @@ class WAL02ViewController: UIViewController {
     
     private lazy
     var premiumButton = UIButton().with {
-        let attributes = TextAttributes(alignment: .center, font: .regular(15), foregroundColor: .black, kern: 0.54)
+        let attributes = TextAttributes(alignment: .center, font: .regular(15), foregroundColor: uiConfig.premiumButtonTextColor, kern: 0.54)
         $0.setAttributedTitle(uiConfig.premiumButtonTitle.uppercased().attributed(attributes), for: .normal)
         $0.setBackgroundImage(uiConfig.premiumButtonImage, for: .normal)
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
@@ -71,23 +63,22 @@ class WAL02ViewController: UIViewController {
     private lazy
     var restoreButton = UIButton().with {
         $0.setTitleColor(uiConfig.restoreButtonTextColor, for: .normal)
-        let attributes = TextAttributes(alignment: .center, font: .regular(11), foregroundColor: uiConfig.restoreButtonTextColor)
-        $0.setAttributedTitle("Restore".uppercased().attributed(attributes), for: .normal)
+        $0.setAttributedTitle(uiConfig.attributedRestore, for: .normal)
         $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         $0.tag = DemoAction.restore.rawValue
     }
 
     private lazy
     var purchaseLabel = UILabel().with {
-        let attributes = TextAttributes(alignment: .center, font: .regular(10), foregroundColor: uiConfig.termsOfUseTextColor)
-        $0.attributedText = "3 days free, after 3$ / month".attributed(attributes)
+        $0.attributedText = uiConfig.attributedPurchaseText
     }
 
     private lazy
-    var termsOfUseLabel = UILabel().with {
-        $0.attributedText = uiConfig.attributedTermsOfUse
-        $0.alpha = 0.5
-        $0.numberOfLines = 0
+    var termsOfUseButton = UIButton().with {
+        $0.setAttributedTitle(uiConfig.attributedTermsOfUse, for: .normal)
+        $0.titleLabel?.numberOfLines  = 0
+        $0.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        $0.tag = DemoAction.termsOfUse.rawValue
     }
 
     private lazy
@@ -99,7 +90,7 @@ class WAL02ViewController: UIViewController {
     }
 
     private lazy
-    var labelsStackView = UIStackView(arrangedSubviews: [purchaseLabel, termsOfUseLabel]).with {
+    var labelsStackView = UIStackView(arrangedSubviews: [purchaseLabel, termsOfUseButton]).with {
         $0.axis = .vertical
         $0.distribution = .fillProportionally
         $0.alignment = .center
@@ -196,7 +187,7 @@ class WAL02ViewController: UIViewController {
 
     @objc private
     func buttonPressed(_ sender: UIButton) {
-        action?(DemoAction.init(rawValue: sender.tag))
+        action?(sender.tag)
     }
 
     func updateUI() {
