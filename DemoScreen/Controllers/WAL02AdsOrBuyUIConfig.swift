@@ -1,10 +1,10 @@
 //
-//  WAL02UIConfig.swift
+//  WAL02AdsOrBuyUIConfig.swift
 //
 
 import UIKit
 
-class WAL02UIConfig {
+class WAL02AdsOrBuyUIConfig {
 
     let title: String
 
@@ -88,7 +88,7 @@ class WAL02UIConfig {
     
 }
 
-extension WAL02UIConfig {
+extension WAL02AdsOrBuyUIConfig {
 
     var attributedTitle: NSAttributedString {
         let titleAttributes = TextAttributes(font: font(25), foregroundColor: titleColor, lineHeight: 30).dictionary

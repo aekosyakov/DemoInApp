@@ -30,14 +30,13 @@
 		0734880B231EE52400FBF82D /* button_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 073487FF231EE52400FBF82D /* button_11.png */; };
 		0734880C231EE52400FBF82D /* button_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 07348800231EE52400FBF82D /* button_07.png */; };
 		0734880D231EE52400FBF82D /* button_05.png in Resources */ = {isa = PBXBuildFile; fileRef = 07348801231EE52400FBF82D /* button_05.png */; };
-		30113EBC23084C2500446A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30113EBB23084C2500446A8C /* AppDelegate.swift */; };
-		30113EBE23084C2500446A8C /* WAL02ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30113EBD23084C2500446A8C /* WAL02ViewController.swift */; };
+		30113EBE23084C2500446A8C /* WAL02AdsOrBuyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30113EBD23084C2500446A8C /* WAL02AdsOrBuyVC.swift */; };
 		30113EDB2308582000446A8C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30113EDA2308582000446A8C /* Utils.swift */; };
-		301486CA23089F1F00988B2F /* WAL02Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301486C923089F1F00988B2F /* WAL02Module.swift */; };
+		301486CA23089F1F00988B2F /* WAL02AdsOrBuy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301486C923089F1F00988B2F /* WAL02AdsOrBuy.swift */; };
 		301486D22309F6BE00988B2F /* TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301486D12309F6BE00988B2F /* TextAttributes.swift */; };
 		9E846CAAA22F6D89A102A992 /* Pods_DemoScreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E42F5AAC274A4A1AD009E61D /* Pods_DemoScreen.framework */; };
 		D08798362319C1FB004E174A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D08798352319C1FB004E174A /* GoogleService-Info.plist */; };
-		D09C4128231A93C900A1FE22 /* WAL02UIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4127231A93C800A1FE22 /* WAL02UIConfig.swift */; };
+		D09C4128231A93C900A1FE22 /* WAL02AdsOrBuyUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4127231A93C800A1FE22 /* WAL02AdsOrBuyUIConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,15 +65,14 @@
 		07348801231EE52400FBF82D /* button_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_05.png; sourceTree = "<group>"; };
 		29766AD8B34C49DBF0C995BE /* Pods-DemoScreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoScreen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoScreen/Pods-DemoScreen.debug.xcconfig"; sourceTree = "<group>"; };
 		30113EB823084C2500446A8C /* DemoScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		30113EBB23084C2500446A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30113EBD23084C2500446A8C /* WAL02ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAL02ViewController.swift; sourceTree = "<group>"; };
-		30113EC723084C2600446A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30113EBD23084C2500446A8C /* WAL02AdsOrBuyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAL02AdsOrBuyVC.swift; sourceTree = "<group>"; };
 		30113EDA2308582000446A8C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		301486C923089F1F00988B2F /* WAL02Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAL02Module.swift; sourceTree = "<group>"; };
+		301486C923089F1F00988B2F /* WAL02AdsOrBuy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAL02AdsOrBuy.swift; sourceTree = "<group>"; };
 		301486D12309F6BE00988B2F /* TextAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributes.swift; sourceTree = "<group>"; };
+		30DFE07E2322927A000CB51D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C862430DB88DC2CA5C7EDE13 /* Pods-DemoScreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoScreen.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoScreen/Pods-DemoScreen.release.xcconfig"; sourceTree = "<group>"; };
 		D08798352319C1FB004E174A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D09C4127231A93C800A1FE22 /* WAL02UIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAL02UIConfig.swift; sourceTree = "<group>"; };
+		D09C4127231A93C800A1FE22 /* WAL02AdsOrBuyUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAL02AdsOrBuyUIConfig.swift; sourceTree = "<group>"; };
 		E42F5AAC274A4A1AD009E61D /* Pods_DemoScreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoScreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -93,6 +91,7 @@
 		0248E6A20FAD5B2815F19964 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30DFE07E2322927A000CB51D /* StoreKit.framework */,
 				E42F5AAC274A4A1AD009E61D /* Pods_DemoScreen.framework */,
 			);
 			name = Frameworks;
@@ -165,7 +164,6 @@
 		30113EBA23084C2500446A8C /* DemoScreen */ = {
 			isa = PBXGroup;
 			children = (
-				30113EBB23084C2500446A8C /* AppDelegate.swift */,
 				D08798352319C1FB004E174A /* GoogleService-Info.plist */,
 				304CF4F1230C63930070493A /* Controllers */,
 				301486BF23089E7B00988B2F /* Modules */,
@@ -179,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				073487BB231DB90700FBF82D /* images */,
-				30113EC723084C2600446A8C /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -196,7 +193,7 @@
 		301486BF23089E7B00988B2F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				301486C923089F1F00988B2F /* WAL02Module.swift */,
+				301486C923089F1F00988B2F /* WAL02AdsOrBuy.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -204,8 +201,8 @@
 		304CF4F1230C63930070493A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				30113EBD23084C2500446A8C /* WAL02ViewController.swift */,
-				D09C4127231A93C800A1FE22 /* WAL02UIConfig.swift */,
+				30113EBD23084C2500446A8C /* WAL02AdsOrBuyVC.swift */,
+				D09C4127231A93C800A1FE22 /* WAL02AdsOrBuyUIConfig.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -258,7 +255,7 @@
 								enabled = 0;
 							};
 							com.apple.InAppPurchase = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -372,12 +369,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D09C4128231A93C900A1FE22 /* WAL02UIConfig.swift in Sources */,
-				301486CA23089F1F00988B2F /* WAL02Module.swift in Sources */,
+				D09C4128231A93C900A1FE22 /* WAL02AdsOrBuyUIConfig.swift in Sources */,
+				301486CA23089F1F00988B2F /* WAL02AdsOrBuy.swift in Sources */,
 				30113EDB2308582000446A8C /* Utils.swift in Sources */,
-				30113EBE23084C2500446A8C /* WAL02ViewController.swift in Sources */,
+				30113EBE23084C2500446A8C /* WAL02AdsOrBuyVC.swift in Sources */,
 				301486D22309F6BE00988B2F /* TextAttributes.swift in Sources */,
-				30113EBC23084C2500446A8C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +500,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 29766AD8B34C49DBF0C995BE /* Pods-DemoScreen.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F7996E7693;
 				INFOPLIST_FILE = DemoScreen/Resources/Info.plist;
@@ -524,7 +519,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C862430DB88DC2CA5C7EDE13 /* Pods-DemoScreen.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F7996E7693;
 				INFOPLIST_FILE = DemoScreen/Resources/Info.plist;

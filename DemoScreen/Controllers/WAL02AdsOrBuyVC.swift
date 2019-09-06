@@ -1,5 +1,5 @@
 //
-//  WAL02ViewController.swift
+//  WAL02AdsOrBuyVC.swift
 //
 
 import UIKit
@@ -9,7 +9,7 @@ enum DemoAction: Int {
 }
 
 final
-class WAL02ViewController: UIViewController {
+class WAL02AdsOrBuyVC: UIViewController {
 
     // MARK: Properties
 
@@ -17,7 +17,7 @@ class WAL02ViewController: UIViewController {
     var action: ((Int) -> Void)?
 
     private
-    let uiConfig: WAL02UIConfig
+    let uiConfig: WAL02AdsOrBuyUIConfig
 
     // MARK: Subviews
 
@@ -96,7 +96,7 @@ class WAL02ViewController: UIViewController {
 
     // MARK: Initialize
 
-    init(uiConfig: WAL02UIConfig) {
+    init(uiConfig: WAL02AdsOrBuyUIConfig) {
         self.uiConfig = uiConfig
         super.init(nibName: nil, bundle: nil)
     }
